@@ -19,3 +19,19 @@ for (d in datasets2){
   eval(parse(text = text1))
 }
 write.csv(everything, "all_tissues.csv")
+
+
+true.data <- read.table("../../../Combined.gct", skip = 3)
+
+max(true.data.means)
+
+true.data.means <- data.frame(rowMeans(true.data.numeric))
+
+ggplot(true.data.means, aes(x=log10(x))) + geom_histogram()
+
+colnames(true.data.means) <- c("x")
+
+true.data.labels <- true.data[,c(1,2)]
+true.data.numeric <- true.data[,-c(1,2)]
+
+true.data.numeric.means <- na.omit(true.data.numeric.means)
